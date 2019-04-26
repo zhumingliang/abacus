@@ -85,7 +85,7 @@ class Index extends Controller
     }
 
     /**
-     * @api {POST} /api/v1/category  8-新增服务类别下的服务
+     * @api {POST} /api/v1/service  8-新增服务类别下的服务
      * @apiGroup  CMS
      * @apiVersion 1.0.1
      * @apiDescription  新增服务类别下的服务
@@ -104,6 +104,8 @@ class Index extends Controller
      * @apiParam (请求参数说明) {int} price    价格
      * @apiSuccessExample {json} 返回样例:
      * {"msg": "ok","error_code": 0}
+     * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
+     * @apiSuccess (返回参数说明) {String} msg 操作结果描述
      * @return \think\response\Json
      * @throws SaveException
      */

@@ -13,5 +13,8 @@ use think\Model;
 
 class ImgT extends Model
 {
-
+    public function getUrlAttr($value, $data)
+    {
+        return $this->prefixImgUrl($value, $data);
+    }
 }

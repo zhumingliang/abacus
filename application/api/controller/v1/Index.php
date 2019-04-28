@@ -54,7 +54,7 @@ class Index extends Controller
      * @apiVersion 1.0.1
      * @apiDescription  获取首页配置服务列表
      * @apiExample {get} 请求样例:
-     * http://abacus.mengant.cn/api/v1/categories
+     * http://api.tdjsp.cn/api/v1/categories
      * @apiSuccessExample {json} 返回样例:
      * [{"id":1,"name":"工商注册","des":"极速响应,中国领先的会计服务平台,专属顾问一对一服务,价格透明，无隐藏收费","services":[{"id":1,"logo":"http:\/\/a.png","name":"注册公司","des":"0 元快速注册 周期短，费用低 \n拒绝隐形消费 一对一专属服务","c_id":1,"price":2580}]}]
      * @apiSuccess (返回参数说明) {int} id 类别id

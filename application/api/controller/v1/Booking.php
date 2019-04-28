@@ -60,7 +60,7 @@ class Booking extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription  后台管理获取预约列表
      * @apiExample {get} 请求样例:
-     * http://abacus.mengant.cn/api/v1/bookings?page=1&size=10
+     * http://api.tdjsp.cn/api/v1/bookings?page=1&size=10
      * @apiParam (请求参数说明) {int}  page 页码
      * @apiParam (请求参数说明) {int}  size 页数
      * @apiSuccessExample {json} 返回样例:

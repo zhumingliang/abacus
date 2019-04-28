@@ -59,7 +59,7 @@ class Apply extends BaseController
      * @apiVersion 1.0.1
      * @apiDescription  获取申请列表
      * @apiExample {get} 请求样例:
-     * http://abacus.mengant.cn/api/v1/applies?page=1&size=10&type=9
+     * http://api.tdjsp.cn/api/v1/applies?page=1&size=10&type=9
      * @apiParam (请求参数说明) {int}  page 页码
      * @apiParam (请求参数说明) {int}  size 页数
      * @apiParam (请求参数说明) {int}  type 申请类别：9 | 获取全部； 1 | 企业名称查询表；2 | 获取注册公司报价; 3 | 获取代理记账及方案；4 | 立即带账；5 | 商标注册获取报价

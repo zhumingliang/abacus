@@ -31,3 +31,10 @@ Route::post('api/:version/image', 'api/:version.Image/save');
 Route::post('api/:version/apply', 'api/:version.Apply/save');
 Route::get('api/:version/applies', 'api/:version.Apply/applies');
 Route::post('api/:version/apply/handel', 'api/:version.Apply/handel');
+
+Route::post('api/:version/information/save', 'api/:version.information/save');
+Route::get('api/:version/informations', 'api/:version.information/informations');
+Route::get('api/:version/information', 'api/:version.information/information');
+Route::post('api/:version/information/update', 'api/:version.information/update');
+Route::post('api/:version/information/handel', 'api/:version.information/handel');
+

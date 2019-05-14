@@ -112,6 +112,32 @@ class Information extends BaseController
         return json($pagingData);
     }
 
+
+
+    /**
+     * @api {GET} /api/v1/information 18-获取指定资讯
+     * @apiGroup  CMS
+     * @apiVersion 1.0.1
+     * @apiDescription  官网/后台管理获取资讯列表
+     * @apiExample {get} 请求样例:
+     * http://api.tdjsp.cn/api/v1/information?id=1
+     * @apiParam (请求参数说明) {int}  id  资讯id
+     * @apiSuccessExample {json} 返回样例:
+     * {"id":1,"title":"税收服务","header_url":"http://a.png","content":"内容","create_time":"2019-04-26 11:47:07","update_time":"2019-04-26 11:47:09"}
+     * @apiSuccess (返回参数说明) {int} id   ID
+     * @apiSuccess (返回参数说明) {String} title   资讯标题
+     * @apiSuccess (返回参数说明) {String} header_url  封面图
+     * @apiSuccess (返回参数说明) {String} content  内容
+     * @apiSuccess (返回参数说明) {String} create_time  创建时间
+     */
+    public function information($id)
+    {
+        $info = InfoT::where('id', $id)
+            ->find();
+
+        return json($info);
+    }
+
     /**
      * @param $id
      * @return \think\response\Json

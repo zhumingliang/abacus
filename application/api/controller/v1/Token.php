@@ -48,12 +48,12 @@ class Token extends Controller
     }
 
     /**
-     * @api {GET} /api/v1/token/loginOut  2-CMS退出登陆
+     * @api {GET} /api/v1/token/login/out  2-CMS退出登陆
      * @apiGroup  CMS
      * @apiVersion 1.0.1
      * @apiDescription CMS退出当前账号登陆。
      * @apiExample {get}  请求样例:
-     * http://api.tdjsp.cn/api/v1/token/loginOut
+     * http://api.tdjsp.cn/api/v1/token/login/out
      * @apiSuccessExample {json} 返回样例:
      *{"msg":"ok","errorCode":0}
      * @apiSuccess (返回参数说明) {int} error_code 错误码： 0表示操作成功无错误

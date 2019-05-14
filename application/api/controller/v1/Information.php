@@ -139,10 +139,7 @@ class Information extends BaseController
     }
 
     /**
-     * @param $id
-     * @return \think\response\Json
-     * @throws UpdateException
-     * @api {POST} /api/v1/booking/handel  17-资讯状态操作
+     * @api {POST} /api/v1/information/handel  17-资讯状态操作
      * @apiGroup  CMS
      * @apiVersion 1.0.1
      * @apiDescription  资讯状态操作

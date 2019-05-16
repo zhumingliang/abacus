@@ -145,4 +145,39 @@ class Index extends Controller
         return json(new SuccessMessage());
     }
 
+
+    /**
+     * @api {POST} /api/v1/service  19-修改服务
+     * @apiGroup  CMS
+     * @apiVersion 1.0.1
+     * @apiDescription  修改服务
+     * @apiExample {post}  请求样例:
+     *    {
+     *       "id": "注册公司",
+     *       "name": "注册公司",
+     *       "des":"0 元快速注册 周期短，费用低拒绝隐形消费 一对一专属服务",
+     *       "logo":1,
+     *       "c_id":1,
+     *       "price":2580,
+     *     }
+     * @apiParam (请求参数说明) {String} name   服务类型
+     * @apiParam (请求参数说明) {String} des    描述
+     * @apiParam (请求参数说明) {int} logo    logoID,由新增图片接口返回
+     * @apiParam (请求参数说明) {int} c_id    分类id
+     * @apiParam (请求参数说明) {int} price    价格
+     * @apiSuccessExample {json} 返回样例:
+     * {"msg": "ok","error_code": 0}
+     * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
+     * @apiSuccess (返回参数说明) {String} msg 操作结果描述
+     * @return \think\response\Json
+     * @throws SaveException
+     */
+    public function serviceUpdate()
+    {
+        $params = $this->request->param();
+        (new IndexServices())->serviceUpdate($params);
+        return json(new SuccessMessage());
+
+    }
+
 }

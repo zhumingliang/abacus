@@ -27,6 +27,18 @@ class IndexServices
 
     }
 
+    public function serviceUpdate($params)
+    {
+        if (key_exists('logo', $params) && strlen($params['logo'])) {
+            $params['logo'] = $this->getImageUrl($params['logo']);
+        }
+        $res = ServiceIndexT::update($params, ['id', $params['id']]);
+        if (!$res) {
+            throw new SaveException();
+        }
+
+    }
+
 
     public function getImageUrl($id)
     {

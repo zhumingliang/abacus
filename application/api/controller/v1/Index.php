@@ -14,10 +14,6 @@ use think\Controller;
 
 class Index extends Controller
 {
-    public function index()
-    {
-        echo 'success';
-    }
 
     /**
      * @api {POST} /api/v1/category  6-新增首页轮播服务类别
@@ -176,7 +172,6 @@ class Index extends Controller
         return json(new SuccessMessage());
     }
 
-
     /**
      * @api {POST} /api/v1/service/update  19-修改服务
      * @apiGroup  CMS
@@ -209,6 +204,34 @@ class Index extends Controller
         (new IndexServices())->serviceUpdate($params);
         return json(new SuccessMessage());
 
+    }
+
+    /**
+     * @api {POST} /api/v1/category/handel  21-首页类别状态操作/删除
+     * @apiGroup  CMS
+     * @apiVersion 1.0.1
+     * @apiDescription  首页服务状态操作/删除
+     * @apiExample {POST}  请求样例:
+     * {
+     * "id": 1
+     * }
+     * @apiParam (请求参数说明) {int} id  类别id
+     * @apiSuccessExample {json} 返回样例:
+     * {"msg": "ok","error_code": 0}
+     * @apiSuccess (返回参数说明) {int} error_code 错误代码 0 表示没有错误
+     * @apiSuccess (返回参数说明) {String} msg 操作结果描述
+     * @param $id
+     * @return \think\response\Json
+     * @throws DeleteException
+     */
+    public function categoryHandel($id)
+    {
+        $res = ServiceCategoryT::update(['state' => CommonEnum::STATE_IS_FAIL], ['id' => $id]);
+        if (!$res) {
+            throw new DeleteException();
+        }
+
+        return json(new SuccessMessage());
     }
 
 }

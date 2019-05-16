@@ -147,7 +147,7 @@ class Index extends Controller
 
 
     /**
-     * @api {POST} /api/v1/service  19-修改服务
+     * @api {POST} /api/v1/service/update  19-修改服务
      * @apiGroup  CMS
      * @apiVersion 1.0.1
      * @apiDescription  修改服务

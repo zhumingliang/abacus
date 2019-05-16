@@ -24,6 +24,7 @@ Route::post('api/:version/booking/handel', 'api/:version.Booking/handel');
 Route::post('api/:version/category', 'api/:version.Index/category');
 Route::post('api/:version/service', 'api/:version.Index/serviceIndex');
 Route::post('api/:version/service/handel', 'api/:version.Index/serviceHandel');
+Route::post('api/:version/service/update', 'api/:version.Index/serviceUpdate');
 Route::get('api/:version/categories', 'api/:version.Index/categories');
 
 Route::post('api/:version/image', 'api/:version.Image/save');

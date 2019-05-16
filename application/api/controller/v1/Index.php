@@ -9,6 +9,7 @@ use app\lib\enum\CommonEnum;
 use app\lib\exception\DeleteException;
 use app\lib\exception\SaveException;
 use app\lib\exception\SuccessMessage;
+use app\lib\exception\UpdateException;
 use think\Controller;
 
 class Index extends Controller
@@ -44,6 +45,36 @@ class Index extends Controller
         $res = ServiceCategoryT::create($params);
         if (!$res) {
             throw  new SaveException();
+        }
+        return json(new SuccessMessage());
+    }
+
+    /**
+     * @api {POST} /api/v1/category/update  20-修改首页轮播服务类别
+     * @apiGroup  CMS
+     * @apiVersion 1.0.1
+     * @apiDescription  新增首页轮播服务类别
+     * @apiExample {post}  请求样例:
+     *    {
+     *       "id": 1,
+     *       "name": "工商注册",
+     *       "des":"极速响应,中国领先的会计服务平台,专属顾问一对一服务,价格透明，无隐藏收费"
+     *     }
+     * @apiParam (请求参数说明) {String} name   服务类型
+     * @apiParam (请求参数说明) {String} des    描述
+     * @apiSuccessExample {json} 返回样例:
+     * {"msg": "ok","error_code": 0}
+     * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
+     * @apiSuccess (返回参数说明) {String} msg 操作结果描述
+     * @return \think\response\Json
+     * @throws UpdateException
+     */
+    public function categoryUpdate()
+    {
+        $params = $this->request->param();
+        $res = ServiceCategoryT::update($params,['id',$params['id']]);
+        if (!$res) {
+            throw  new UpdateException();
         }
         return json(new SuccessMessage());
     }

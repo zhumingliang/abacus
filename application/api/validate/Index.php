@@ -16,7 +16,7 @@ class Index extends BaseValidate
         'des' => 'require',
         'c_id' => 'require|isPositiveInteger',
         'logo' => 'require|isPositiveInteger',
-        'price' => 'require|isPositiveInteger',
+        'price' => 'require',
     ];
     protected $scene = [
         'category' => ['name', 'des'],

@@ -30,6 +30,7 @@ Route::post('api/:version/service/update', 'api/:version.Index/serviceUpdate');
 Route::get('api/:version/categories', 'api/:version.Index/categories');
 
 Route::post('api/:version/image', 'api/:version.Image/save');
+Route::post('api/:version/image/url', 'api/:version.Image/saveToUrl');
 
 Route::post('api/:version/apply', 'api/:version.Apply/save');
 Route::get('api/:version/applies', 'api/:version.Apply/applies');

@@ -23,11 +23,13 @@ class Information extends BaseController
      *    {
      *       "title": "注意！安徽全面推行企业登记身份管理实名验证！",
      *       "header_url": 1,
+     *       "sub_content": "为有效遏制冒用他人身份证信息"
      *       "content": "为有效遏制冒用他人身份证信息"
      *     }
      * @apiParam (请求参数说明) {String} title   资讯标题
      * @apiParam (请求参数说明) {String} header_url    封面图图片id：通过图片上传接口上传返回id
      * @apiParam (请求参数说明) {String} content  内容
+     * @apiParam (请求参数说明) {String} sub_content  部分内容
      * @apiSuccessExample {json} 返回样例:
      * {"msg": "ok","error_code": 0}
      * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
@@ -59,11 +61,13 @@ class Information extends BaseController
      *       "title": "注意！安徽全面推行企业登记身份管理实名验证！",
      *       "header_url": 1,
      *       "content": "为有效遏制冒用他人身份证信息"
+     *       "sub_content": "为有效遏制冒用他人身份证信息"
      *     }
      * @apiParam (请求参数说明) {int} id   ID
      * @apiParam (请求参数说明) {String} title   资讯标题
      * @apiParam (请求参数说明) {String} header_url    封面图图片id：通过图片上传接口上传返回id
      * @apiParam (请求参数说明) {String} content  内容
+     * @apiParam (请求参数说明) {String} content  部分内容
      * @apiSuccessExample {json} 返回样例:
      * {"msg": "ok","error_code": 0}
      * @apiSuccess (返回参数说明) {int} errorCode 错误代码 0 表示没有错误
@@ -93,20 +97,21 @@ class Information extends BaseController
      * @apiParam (请求参数说明) {int}  page 页码
      * @apiParam (请求参数说明) {int}  size 页数
      * @apiSuccessExample {json} 返回样例:
-     * {"total":1,"per_page":"10","current_page":1,"last_page":1,"data":[{"id":1,"title":"税收服务","header_url":"http://a.png","content":"内容","create_time":"2019-04-26 11:47:07","update_time":"2019-04-26 11:47:09"}]}
+     * {"total":1,"per_page":"10","current_page":1,"last_page":1,"data":[{"id":1,"title":"税收服务","header_url":"http://a.png","sub_content":"内容","create_time":"2019-04-26 11:47:07","update_time":"2019-04-26 11:47:09"}]}
      * @apiSuccess (返回参数说明) {int} total 数据总数
      * @apiSuccess (返回参数说明) {int} per_page 每页多少条数据
      * @apiSuccess (返回参数说明) {int} current_page 当前页码
      * @apiSuccess (返回参数说明) {int} id   ID
      * @apiSuccess (返回参数说明) {String} title   资讯标题
      * @apiSuccess (返回参数说明) {String} header_url    封面图图片id：通过图片上传接口上传返回id
-     * @apiSuccess (返回参数说明) {String} content  内容
+     * @apiSuccess (返回参数说明) {String} sub_content  部分内容
      * @apiSuccess (返回参数说明) {String} create_time  创建时间
      */
     public function informations($page = 1, $size = 10)
     {
         $pagingData = InfoT::order('create_time desc')
             ->where('state', CommonEnum::STATE_IS_OK)
+            ->hidden(['content','update_time'])
             ->paginate($size, false, ['page' => $page])->toArray();
 
         return json($pagingData);
@@ -133,6 +138,7 @@ class Information extends BaseController
     public function information($id)
     {
         $info = InfoT::where('id', $id)
+            ->hidden(['sub_content','update_time'])
             ->find();
 
         return json($info);
